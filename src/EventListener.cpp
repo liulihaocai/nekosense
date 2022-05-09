@@ -19,10 +19,10 @@
 #include "SDK/IGameEvent.h"
 #include "settings.h"
 
-EventListener::EventListener(std::vector<const char*> events)
+EventListener::EventListener(std::vector<const char *> events)
 {
-    for (const auto& it : events)
-	gameEvents->AddListener(this, it, false);
+    for (const auto &it : events)
+        gameEvents->AddListener(this, it, false);
 }
 
 EventListener::~EventListener()
@@ -30,7 +30,7 @@ EventListener::~EventListener()
     gameEvents->RemoveListener(this);
 }
 
-void EventListener::FireGameEvent(IGameEvent* event)
+void EventListener::FireGameEvent(IGameEvent *event)
 {
     Legitbot::FireGameEvent(event);
     Ragebot::FireGameEvent(event);
@@ -38,7 +38,6 @@ void EventListener::FireGameEvent(IGameEvent* event)
     Hitmarkers::FireGameEvent(event);
     AutoBuy::FireGameEvent(event);
     Eventlog::FireGameEvent(event);
-    NameStealer::FireGameEvent(event);
     VoteRevealer::FireGameEvent(event);
     Resolver::FireGameEvent(event);
     Spammer::FireGameEvent(event);

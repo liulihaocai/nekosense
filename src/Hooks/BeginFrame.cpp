@@ -5,18 +5,16 @@
 
 #include "../Features/clantagchanger.h"
 #include "../Features/namechanger.h"
-#include "../Features/namestealer.h"
 #include "../Features/spammer.h"
 #include "../Features/radar.h"
 #include "../Features/disablepostprocessing.h"
 
-typedef void (*BeginFrameFn) (void*, float);
+typedef void (*BeginFrameFn)(void *, float);
 
-void Hooks::BeginFrame(void* thisptr, float frameTime)
+void Hooks::BeginFrame(void *thisptr, float frameTime)
 {
 	ClanTagChanger::BeginFrame(frameTime);
 	NameChanger::BeginFrame(frameTime);
-	NameStealer::BeginFrame(frameTime);
 	Spammer::BeginFrame(frameTime);
 	Radar::BeginFrame();
 	DisablePostProcessing::BeginFrame();

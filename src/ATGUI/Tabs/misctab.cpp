@@ -434,8 +434,7 @@ void MiscCustomizations::RenderMainMenu(ImVec2 &pos, ImDrawList *draw, int sideT
 				}
 				ImGui::Columns(2, nullptr, false);
 				{
-					if (ImGui::Checkbox(XORSTR("Name Stealer"), &Settings::NameStealer::enabled))
-						NameStealer::entityId = -1;
+					ImGui::Checkbox(XORSTR("Name Stealer"), &Settings::NameStealer::enabled);
 				}
 				ImGui::NextColumn();
 				{
