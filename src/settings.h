@@ -68,6 +68,8 @@ enum class ClanTagType : int
 	MARQUEE,
 	WORDS,
 	LETTERS,
+	ROTATE,
+	UNDERLINE,
 };
 
 enum class impactType : int
@@ -291,53 +293,53 @@ enum class SkinAndModel : int
 struct LegitWeapon_t
 {
 	bool silent,
-	    friendly,
-	    closestHitbox,
-	    engageLock,
-	    engageLockTR,
-	    aimkeyOnly,
-	    smoothEnabled,
-	    courseRandomizationEnabled,
-	    doAimAfterXShotsEnabled,
-	    smoothSaltEnabled,
-	    errorMarginEnabled,
-	    curveEnabled,
-	    autoAimEnabled,
-	    aimStepEnabled,
-	    rcsEnabled,
-	    rcsAlwaysOn,
-	    spreadLimitEnabled,
-	    hitchanceEnabled,
-	    autoPistolEnabled,
-	    autoShootEnabled,
-	    autoScopeEnabled,
-	    noShootEnabled,
-	    ignoreJumpEnabled,
-	    ignoreEnemyJumpEnabled,
-	    smokeCheck,
-	    flashCheck,
-	    autoWallEnabled,
-	    autoAimRealDistance,
-	    autoSlow,
-	    predEnabled,
-	    scopeControlEnabled,
-	    velocityCheck,
-	    backtrackEnabled,
+		friendly,
+		closestHitbox,
+		engageLock,
+		engageLockTR,
+		aimkeyOnly,
+		smoothEnabled,
+		courseRandomizationEnabled,
+		doAimAfterXShotsEnabled,
+		smoothSaltEnabled,
+		errorMarginEnabled,
+		curveEnabled,
+		autoAimEnabled,
+		aimStepEnabled,
+		rcsEnabled,
+		rcsAlwaysOn,
+		spreadLimitEnabled,
+		hitchanceEnabled,
+		autoPistolEnabled,
+		autoShootEnabled,
+		autoScopeEnabled,
+		noShootEnabled,
+		ignoreJumpEnabled,
+		ignoreEnemyJumpEnabled,
+		smokeCheck,
+		flashCheck,
+		autoWallEnabled,
+		autoAimRealDistance,
+		autoSlow,
+		predEnabled,
+		scopeControlEnabled,
+		velocityCheck,
+		backtrackEnabled,
 
-	    triggerbotEnabled,
-	    triggerbotHitchanceEnabled,
-	    triggerbotMagnetEnabled,
-	    triggerbotRandomDelayEnabled,
-	    triggerbotFilterEnemies,
-	    triggerbotFilterAllies,
-	    triggerbotFilterWalls,
-	    triggerbotFilterSmokeCheck,
-	    triggerbotFilterFlashCheck,
-	    triggerbotFilterHead,
-	    triggerbotFilterChest,
-	    triggerbotFilterStomach,
-	    triggerbotFilterArms,
-	    triggerbotFilterLegs;
+		triggerbotEnabled,
+		triggerbotHitchanceEnabled,
+		triggerbotMagnetEnabled,
+		triggerbotRandomDelayEnabled,
+		triggerbotFilterEnemies,
+		triggerbotFilterAllies,
+		triggerbotFilterWalls,
+		triggerbotFilterSmokeCheck,
+		triggerbotFilterFlashCheck,
+		triggerbotFilterHead,
+		triggerbotFilterChest,
+		triggerbotFilterStomach,
+		triggerbotFilterArms,
+		triggerbotFilterLegs;
 
 	int engageLockTTR = 700;
 	Bone bone = BONE_HEAD;
@@ -346,24 +348,24 @@ struct LegitWeapon_t
 	ButtonCode_t triggerbotkey = ButtonCode_t ::KEY_LALT;
 
 	float smoothAmount = 1.0f,
-		 courseRandomizationAmount = 2.0f,
-		 doAimAfterXShotsAmount = 0.0f,
-		 smoothSaltMultiplier = 0.0f,
-		 errorMarginValue = 0.0f,
-		 curveAmount = 0.5f,
-		 LegitautoAimFov = 15.0f,
-		 aimStepMin = 25.0f,
-		 aimStepMax = 35.0f,
-		 rcsAmountX = 2.0f,
-		 rcsAmountY = 2.0f,
-		 autoWallValue = 10.0f,
-		 spreadLimit = 1.0f,
-		 hitchanceValue = 100.f,
-		 backtrackTime = 0.2f,
-		 triggerbotHitchanceValue = 100.f,
-		 triggerbotRandomDelayLowBound = 20.f,
-		 triggerbotRandomDelayHighBound = 35.f,
-		 triggerbotRandomDelayLastRoll = 0.f;
+		  courseRandomizationAmount = 2.0f,
+		  doAimAfterXShotsAmount = 0.0f,
+		  smoothSaltMultiplier = 0.0f,
+		  errorMarginValue = 0.0f,
+		  curveAmount = 0.5f,
+		  LegitautoAimFov = 15.0f,
+		  aimStepMin = 25.0f,
+		  aimStepMax = 35.0f,
+		  rcsAmountX = 2.0f,
+		  rcsAmountY = 2.0f,
+		  autoWallValue = 10.0f,
+		  spreadLimit = 1.0f,
+		  hitchanceValue = 100.f,
+		  backtrackTime = 0.2f,
+		  triggerbotHitchanceValue = 100.f,
+		  triggerbotRandomDelayLowBound = 20.f,
+		  triggerbotRandomDelayHighBound = 35.f,
+		  triggerbotRandomDelayLastRoll = 0.f;
 
 	bool desiredBones[31];
 
@@ -375,96 +377,96 @@ struct LegitWeapon_t
 				return false;
 		}
 		return this->silent == another.silent &&
-			  this->friendly == another.friendly &&
-			  this->engageLock == another.engageLock &&
-			  this->engageLockTR == another.engageLockTR &&
-			  this->engageLockTTR == another.engageLockTTR &&
-			  this->autoShootEnabled == another.autoShootEnabled &&
-			  this->bone == another.bone &&
-			  this->aimkey == another.aimkey &&
-			  this->aimkeyOnly == another.aimkeyOnly &&
-			  this->smoothEnabled == another.smoothEnabled &&
-			  this->smoothAmount == another.smoothAmount &&
-			  this->courseRandomizationEnabled == another.courseRandomizationEnabled &&
-			  this->courseRandomizationAmount == another.courseRandomizationAmount &&
-			  this->doAimAfterXShotsEnabled == another.doAimAfterXShotsEnabled &&
-			  this->doAimAfterXShotsAmount == another.doAimAfterXShotsAmount &&
-			  this->smoothType == another.smoothType &&
-			  this->smoothType == another.smoothType &&
-			  this->smoothSaltEnabled == another.smoothSaltEnabled &&
-			  this->smoothSaltMultiplier == another.smoothSaltMultiplier &&
-			  this->errorMarginEnabled == another.errorMarginEnabled &&
-			  this->errorMarginValue == another.errorMarginValue &&
-			  this->curveEnabled == another.curveEnabled &&
-			  this->curveAmount == another.curveAmount &&
-			  this->autoAimEnabled == another.autoAimEnabled &&
-			  this->LegitautoAimFov == another.LegitautoAimFov &&
-			  this->aimStepEnabled == another.aimStepEnabled &&
-			  this->aimStepMin == another.aimStepMin &&
-			  this->aimStepMax == another.aimStepMax &&
-			  this->rcsEnabled == another.rcsEnabled &&
-			  this->rcsAlwaysOn == another.rcsAlwaysOn &&
-			  this->rcsAmountX == another.rcsAmountX &&
-			  this->rcsAmountY == another.rcsAmountY &&
-			  this->autoPistolEnabled == another.autoPistolEnabled &&
-			  this->autoScopeEnabled == another.autoScopeEnabled &&
-			  this->noShootEnabled == another.noShootEnabled &&
-			  this->ignoreJumpEnabled == another.ignoreJumpEnabled &&
-			  this->ignoreEnemyJumpEnabled == another.ignoreEnemyJumpEnabled &&
-			  this->smokeCheck == another.smokeCheck &&
-			  this->flashCheck == another.flashCheck &&
-			  this->spreadLimitEnabled == another.spreadLimitEnabled &&
-			  this->spreadLimit == another.spreadLimit &&
-			  this->autoWallEnabled == another.autoWallEnabled &&
-			  this->autoWallValue == another.autoWallValue &&
-			  this->hitchanceEnabled == another.hitchanceEnabled &&
-			  this->hitchanceValue == another.hitchanceValue &&
-			  this->autoSlow == another.autoSlow &&
-			  this->predEnabled == another.predEnabled &&
-			  this->autoAimRealDistance == another.autoAimRealDistance &&
-			  this->scopeControlEnabled == another.scopeControlEnabled &&
-			  this->backtrackEnabled == another.backtrackEnabled &&
-			  this->backtrackTime == another.backtrackTime &&
-			  this->velocityCheck == another.velocityCheck &&
+			   this->friendly == another.friendly &&
+			   this->engageLock == another.engageLock &&
+			   this->engageLockTR == another.engageLockTR &&
+			   this->engageLockTTR == another.engageLockTTR &&
+			   this->autoShootEnabled == another.autoShootEnabled &&
+			   this->bone == another.bone &&
+			   this->aimkey == another.aimkey &&
+			   this->aimkeyOnly == another.aimkeyOnly &&
+			   this->smoothEnabled == another.smoothEnabled &&
+			   this->smoothAmount == another.smoothAmount &&
+			   this->courseRandomizationEnabled == another.courseRandomizationEnabled &&
+			   this->courseRandomizationAmount == another.courseRandomizationAmount &&
+			   this->doAimAfterXShotsEnabled == another.doAimAfterXShotsEnabled &&
+			   this->doAimAfterXShotsAmount == another.doAimAfterXShotsAmount &&
+			   this->smoothType == another.smoothType &&
+			   this->smoothType == another.smoothType &&
+			   this->smoothSaltEnabled == another.smoothSaltEnabled &&
+			   this->smoothSaltMultiplier == another.smoothSaltMultiplier &&
+			   this->errorMarginEnabled == another.errorMarginEnabled &&
+			   this->errorMarginValue == another.errorMarginValue &&
+			   this->curveEnabled == another.curveEnabled &&
+			   this->curveAmount == another.curveAmount &&
+			   this->autoAimEnabled == another.autoAimEnabled &&
+			   this->LegitautoAimFov == another.LegitautoAimFov &&
+			   this->aimStepEnabled == another.aimStepEnabled &&
+			   this->aimStepMin == another.aimStepMin &&
+			   this->aimStepMax == another.aimStepMax &&
+			   this->rcsEnabled == another.rcsEnabled &&
+			   this->rcsAlwaysOn == another.rcsAlwaysOn &&
+			   this->rcsAmountX == another.rcsAmountX &&
+			   this->rcsAmountY == another.rcsAmountY &&
+			   this->autoPistolEnabled == another.autoPistolEnabled &&
+			   this->autoScopeEnabled == another.autoScopeEnabled &&
+			   this->noShootEnabled == another.noShootEnabled &&
+			   this->ignoreJumpEnabled == another.ignoreJumpEnabled &&
+			   this->ignoreEnemyJumpEnabled == another.ignoreEnemyJumpEnabled &&
+			   this->smokeCheck == another.smokeCheck &&
+			   this->flashCheck == another.flashCheck &&
+			   this->spreadLimitEnabled == another.spreadLimitEnabled &&
+			   this->spreadLimit == another.spreadLimit &&
+			   this->autoWallEnabled == another.autoWallEnabled &&
+			   this->autoWallValue == another.autoWallValue &&
+			   this->hitchanceEnabled == another.hitchanceEnabled &&
+			   this->hitchanceValue == another.hitchanceValue &&
+			   this->autoSlow == another.autoSlow &&
+			   this->predEnabled == another.predEnabled &&
+			   this->autoAimRealDistance == another.autoAimRealDistance &&
+			   this->scopeControlEnabled == another.scopeControlEnabled &&
+			   this->backtrackEnabled == another.backtrackEnabled &&
+			   this->backtrackTime == another.backtrackTime &&
+			   this->velocityCheck == another.velocityCheck &&
 
-			  this->triggerbotEnabled == another.triggerbotEnabled &&
-			  this->triggerbotHitchanceEnabled == another.triggerbotEnabled &&
-			  this->triggerbotHitchanceValue == another.triggerbotHitchanceValue &&
-			  this->triggerbotRandomDelayEnabled == another.triggerbotRandomDelayEnabled &&
-			  this->triggerbotRandomDelayLowBound == another.triggerbotRandomDelayLowBound &&
-			  this->triggerbotRandomDelayHighBound == another.triggerbotRandomDelayHighBound &&
-			  this->triggerbotRandomDelayLastRoll == another.triggerbotRandomDelayLastRoll &&
+			   this->triggerbotEnabled == another.triggerbotEnabled &&
+			   this->triggerbotHitchanceEnabled == another.triggerbotEnabled &&
+			   this->triggerbotHitchanceValue == another.triggerbotHitchanceValue &&
+			   this->triggerbotRandomDelayEnabled == another.triggerbotRandomDelayEnabled &&
+			   this->triggerbotRandomDelayLowBound == another.triggerbotRandomDelayLowBound &&
+			   this->triggerbotRandomDelayHighBound == another.triggerbotRandomDelayHighBound &&
+			   this->triggerbotRandomDelayLastRoll == another.triggerbotRandomDelayLastRoll &&
 
-			  this->triggerbotFilterEnemies == another.triggerbotFilterEnemies &&
-			  this->triggerbotFilterAllies == another.triggerbotFilterAllies &&
-			  this->triggerbotFilterWalls == another.triggerbotFilterWalls &&
-			  this->triggerbotFilterSmokeCheck == another.triggerbotFilterSmokeCheck &&
-			  this->triggerbotFilterFlashCheck == another.triggerbotFilterFlashCheck &&
-			  this->triggerbotFilterHead == another.triggerbotFilterHead &&
-			  this->triggerbotFilterChest == another.triggerbotFilterChest &&
-			  this->triggerbotFilterStomach == another.triggerbotFilterStomach &&
-			  this->triggerbotFilterArms == another.triggerbotFilterArms &&
-			  this->triggerbotFilterLegs == another.triggerbotFilterLegs;
+			   this->triggerbotFilterEnemies == another.triggerbotFilterEnemies &&
+			   this->triggerbotFilterAllies == another.triggerbotFilterAllies &&
+			   this->triggerbotFilterWalls == another.triggerbotFilterWalls &&
+			   this->triggerbotFilterSmokeCheck == another.triggerbotFilterSmokeCheck &&
+			   this->triggerbotFilterFlashCheck == another.triggerbotFilterFlashCheck &&
+			   this->triggerbotFilterHead == another.triggerbotFilterHead &&
+			   this->triggerbotFilterChest == another.triggerbotFilterChest &&
+			   this->triggerbotFilterStomach == another.triggerbotFilterStomach &&
+			   this->triggerbotFilterArms == another.triggerbotFilterArms &&
+			   this->triggerbotFilterLegs == another.triggerbotFilterLegs;
 	}
 } const defaultSettings{};
 
 struct RageWeapon_t
 {
 	bool silent,
-	    friendly,
-	    closestBone,
-	    HitChanceEnabled,
-	    autoPistolEnabled,
-	    autoShootEnabled,
-	    autoScopeEnabled,
-	    autoSlow,
-	    scopeControlEnabled,
-	    OnshotEnabled;
+		friendly,
+		closestBone,
+		HitChanceEnabled,
+		autoPistolEnabled,
+		autoShootEnabled,
+		autoScopeEnabled,
+		autoSlow,
+		scopeControlEnabled,
+		OnshotEnabled;
 
 	float MinDamage = 50.f,
-		 HitChance = 20.f,
-		 BodyScale = 0.1f,
-		 HeadScale = 0.1f;
+		  HitChance = 20.f,
+		  BodyScale = 0.1f,
+		  HeadScale = 0.1f;
 
 	ButtonCode_t onshotkey = ButtonCode_t ::KEY_3;
 	ButtonCode_t mindmgoveridekey = ButtonCode_t ::KEY_5;
@@ -484,22 +486,22 @@ struct RageWeapon_t
 				return false;
 		}
 		return this->silent == Ragebotanother.silent &&
-			  this->friendly == Ragebotanother.friendly &&
-			  this->closestBone == Ragebotanother.closestBone &&
-			  this->autoPistolEnabled == Ragebotanother.autoPistolEnabled &&
-			  this->autoShootEnabled == Ragebotanother.autoShootEnabled &&
-			  this->autoScopeEnabled == Ragebotanother.autoScopeEnabled &&
-			  this->HitChanceEnabled == Ragebotanother.HitChanceEnabled &&
-			  this->MinDamage == Ragebotanother.MinDamage &&
-			  this->autoSlow == Ragebotanother.autoSlow &&
-			  this->scopeControlEnabled == Ragebotanother.scopeControlEnabled &&
-			  this->HitChance == Ragebotanother.HitChance &&
-			  this->DmagePredictionType == Ragebotanother.DmagePredictionType &&
-			  this->enemySelectionType == Ragebotanother.enemySelectionType &&
-			  this->BodyScale == Ragebotanother.BodyScale &&
-			  this->HeadScale == Ragebotanother.HeadScale &&
-			  this->mindmgoveridekey == Ragebotanother.mindmgoveridekey &&
-			  this->onshotkey == Ragebotanother.onshotkey;
+			   this->friendly == Ragebotanother.friendly &&
+			   this->closestBone == Ragebotanother.closestBone &&
+			   this->autoPistolEnabled == Ragebotanother.autoPistolEnabled &&
+			   this->autoShootEnabled == Ragebotanother.autoShootEnabled &&
+			   this->autoScopeEnabled == Ragebotanother.autoScopeEnabled &&
+			   this->HitChanceEnabled == Ragebotanother.HitChanceEnabled &&
+			   this->MinDamage == Ragebotanother.MinDamage &&
+			   this->autoSlow == Ragebotanother.autoSlow &&
+			   this->scopeControlEnabled == Ragebotanother.scopeControlEnabled &&
+			   this->HitChance == Ragebotanother.HitChance &&
+			   this->DmagePredictionType == Ragebotanother.DmagePredictionType &&
+			   this->enemySelectionType == Ragebotanother.enemySelectionType &&
+			   this->BodyScale == Ragebotanother.BodyScale &&
+			   this->HeadScale == Ragebotanother.HeadScale &&
+			   this->mindmgoveridekey == Ragebotanother.mindmgoveridekey &&
+			   this->onshotkey == Ragebotanother.onshotkey;
 	}
 
 } const ragedefault{};
@@ -695,15 +697,15 @@ namespace Settings
 			inline bool realDistance = false;
 			inline bool closestBone = false;
 			inline bool desiredBones[] = {
-			    true, true, true, true, true, true, true,	   // center mass
-			    false, false, false, false, false, false, false, // left arm
-			    false, false, false, false, false, false, false, // right arm
-			    false, false, false, false, false,			   // left leg
-			    false, false, false, false, false			   // right leg
+				true, true, true, true, true, true, true,		 // center mass
+				false, false, false, false, false, false, false, // left arm
+				false, false, false, false, false, false, false, // right arm
+				false, false, false, false, false,				 // left leg
+				false, false, false, false, false				 // right leg
 			};
 			inline bool engageLock = false;
 			inline bool engageLockTR = false; // Target Reacquisition ( re-target after getting a kill when spraying ).
-			inline int engageLockTTR = 700;   // Time to Target Reacquisition in ms
+			inline int engageLockTTR = 700;	  // Time to Target Reacquisition in ms
 		}
 
 		namespace ShootAssist
@@ -803,7 +805,7 @@ namespace Settings
 		}
 
 		inline std::unordered_map<ItemDefinitionIndex, LegitWeapon_t, Util::IntHash<ItemDefinitionIndex>> weapons = {
-		    {ItemDefinitionIndex::INVALID, defaultSettings},
+			{ItemDefinitionIndex::INVALID, defaultSettings},
 		};
 	}
 
@@ -896,7 +898,7 @@ namespace Settings
 		}
 
 		inline std::unordered_map<ItemDefinitionIndex, RageWeapon_t, Util::IntHash<ItemDefinitionIndex>> weapons = {
-		    {ItemDefinitionIndex::INVALID, ragedefault},
+			{ItemDefinitionIndex::INVALID, ragedefault},
 		};
 	}
 
@@ -1554,7 +1556,7 @@ namespace Settings
 
 		namespace Spread
 		{
-			inline bool enabled = false;	   // show current spread
+			inline bool enabled = false;	 // show current spread
 			inline bool spreadLimit = false; // show spreadLimit value
 			inline ColorVar color = ImColor(15, 200, 45, 255);
 			inline ColorVar spreadLimitColor = ImColor(20, 5, 150, 255);
@@ -1802,60 +1804,60 @@ namespace Settings
 		}
 
 		inline std::unordered_map<ItemDefinitionIndex, AttribItem_t, Util::IntHash<ItemDefinitionIndex>> skinsCT = {
-		    {ItemDefinitionIndex::WEAPON_AK47 /*WeaponID*/, {ItemDefinitionIndex::INVALID /*itemDefinitionIndex*/, 524 /*fallbackPaintKit*/, 0.0005f /*fallbackWear*/, -1 /*fallbackSeed*/, 1337 /*fallbackStatTrak*/, -1 /*fallbackEntityQuality*/, "TestTux" /*customName*/}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE, {ItemDefinitionIndex::WEAPON_KNIFE_M9_BAYONET, -1, -1, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_CT_SIDE, {ItemDefinitionIndex::GLOVE_SPECIALIST, 10006, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_T_SIDE, {ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, 10006, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, {ItemDefinitionIndex::INVALID, 10006, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_SPORTY, {ItemDefinitionIndex::INVALID, 10018, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_SLICK, {ItemDefinitionIndex::INVALID, 10013, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_MOTORCYCLE, {ItemDefinitionIndex::INVALID, 10024, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_LEATHER_WRAP, {ItemDefinitionIndex::INVALID, 10009, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_SPECIALIST, {ItemDefinitionIndex::INVALID, 10033, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_M9_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, 1337, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_KARAMBIT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_FLIP, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_GUT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_BUTTERFLY, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_TACTICAL, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_PUSH, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_SURVIVAL_BOWIE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_URSUS, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_GYPSY_JACKKNIFE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_STILETTO, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_WIDOWMAKER, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_CSS, {ItemDefinitionIndex::INVALID, -1, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_GHOST, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    //{ ItemDefinitionIndex::WEAPON_KNIFEGG, { ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""} },
-		    {ItemDefinitionIndex::WEAPON_USP_SILENCER, {ItemDefinitionIndex::INVALID, 2, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_AK47 /*WeaponID*/, {ItemDefinitionIndex::INVALID /*itemDefinitionIndex*/, 524 /*fallbackPaintKit*/, 0.0005f /*fallbackWear*/, -1 /*fallbackSeed*/, 1337 /*fallbackStatTrak*/, -1 /*fallbackEntityQuality*/, "TestTux" /*customName*/}},
+			{ItemDefinitionIndex::WEAPON_KNIFE, {ItemDefinitionIndex::WEAPON_KNIFE_M9_BAYONET, -1, -1, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_CT_SIDE, {ItemDefinitionIndex::GLOVE_SPECIALIST, 10006, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_T_SIDE, {ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, 10006, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, {ItemDefinitionIndex::INVALID, 10006, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_SPORTY, {ItemDefinitionIndex::INVALID, 10018, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_SLICK, {ItemDefinitionIndex::INVALID, 10013, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_MOTORCYCLE, {ItemDefinitionIndex::INVALID, 10024, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_LEATHER_WRAP, {ItemDefinitionIndex::INVALID, 10009, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_SPECIALIST, {ItemDefinitionIndex::INVALID, 10033, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_M9_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, 1337, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_KARAMBIT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_FLIP, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_GUT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_BUTTERFLY, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_TACTICAL, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_PUSH, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_SURVIVAL_BOWIE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_URSUS, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_GYPSY_JACKKNIFE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_STILETTO, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_WIDOWMAKER, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_CSS, {ItemDefinitionIndex::INVALID, -1, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_GHOST, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			//{ ItemDefinitionIndex::WEAPON_KNIFEGG, { ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""} },
+			{ItemDefinitionIndex::WEAPON_USP_SILENCER, {ItemDefinitionIndex::INVALID, 2, 0.0005f, -1, -1, -1, ""}},
 		};
 		inline std::unordered_map<ItemDefinitionIndex, AttribItem_t, Util::IntHash<ItemDefinitionIndex>> skinsT = {
-		    {ItemDefinitionIndex::WEAPON_AK47 /*WeaponID*/, {ItemDefinitionIndex::INVALID /*itemDefinitionIndex*/, 524 /*fallbackPaintKit*/, 0.0005f /*fallbackWear*/, -1 /*fallbackSeed*/, 1337 /*fallbackStatTrak*/, -1 /*fallbackEntityQuality*/, "TestTux" /*customName*/}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_T, {ItemDefinitionIndex::WEAPON_KNIFE_KARAMBIT, -1, -1, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_T_SIDE, {ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, 10006, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, {ItemDefinitionIndex::INVALID, 10006, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_SPORTY, {ItemDefinitionIndex::INVALID, 10018, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_SLICK, {ItemDefinitionIndex::INVALID, 10013, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_MOTORCYCLE, {ItemDefinitionIndex::INVALID, 10024, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_LEATHER_WRAP, {ItemDefinitionIndex::INVALID, 10009, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::GLOVE_SPECIALIST, {ItemDefinitionIndex::INVALID, 10033, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_M9_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_KARAMBIT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, 1337, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_FLIP, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_GUT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_BUTTERFLY, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_TACTICAL, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_PUSH, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_SURVIVAL_BOWIE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_URSUS, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_GYPSY_JACKKNIFE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_STILETTO, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_WIDOWMAKER, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_CSS, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    {ItemDefinitionIndex::WEAPON_KNIFE_GHOST, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
-		    //{ ItemDefinitionIndex::WEAPON_KNIFEGG, { ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""} },
+			{ItemDefinitionIndex::WEAPON_AK47 /*WeaponID*/, {ItemDefinitionIndex::INVALID /*itemDefinitionIndex*/, 524 /*fallbackPaintKit*/, 0.0005f /*fallbackWear*/, -1 /*fallbackSeed*/, 1337 /*fallbackStatTrak*/, -1 /*fallbackEntityQuality*/, "TestTux" /*customName*/}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_T, {ItemDefinitionIndex::WEAPON_KNIFE_KARAMBIT, -1, -1, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_T_SIDE, {ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, 10006, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_STUDDED_BLOODHOUND, {ItemDefinitionIndex::INVALID, 10006, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_SPORTY, {ItemDefinitionIndex::INVALID, 10018, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_SLICK, {ItemDefinitionIndex::INVALID, 10013, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_MOTORCYCLE, {ItemDefinitionIndex::INVALID, 10024, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_LEATHER_WRAP, {ItemDefinitionIndex::INVALID, 10009, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::GLOVE_SPECIALIST, {ItemDefinitionIndex::INVALID, 10033, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_M9_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_KARAMBIT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, 1337, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_BAYONET, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_FLIP, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_GUT, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_BUTTERFLY, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_TACTICAL, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_PUSH, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_SURVIVAL_BOWIE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_URSUS, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_GYPSY_JACKKNIFE, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_STILETTO, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_WIDOWMAKER, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_CSS, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			{ItemDefinitionIndex::WEAPON_KNIFE_GHOST, {ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""}},
+			//{ ItemDefinitionIndex::WEAPON_KNIFEGG, { ItemDefinitionIndex::INVALID, 417, 0.0005f, -1, -1, -1, ""} },
 		};
 	}
 

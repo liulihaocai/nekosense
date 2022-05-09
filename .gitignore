@@ -2,6 +2,7 @@
 *.so
 .vscode/
 .idea/
+build/
 *.cbp
 cmake-build-debug
 CMakeFiles/

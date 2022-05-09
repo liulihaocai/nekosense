@@ -32,7 +32,7 @@ void MiscCustomizations::RenderMainMenu(ImVec2 &pos, ImDrawList *draw, int sideT
 	const char *secondaryWeapons[] = {"None", "Dual Berettas", "Deagle/Revolver"};
 	const char *altwep[] = {"Grenades", "Armor", "Taser", "Defuser"};
 	const char *strafeTypes[] = {"Forwards", "Backwards", "Left", "Right", "Rage", "Directional"};
-	const char *animationTypes[] = {"Static", "Marquee", "Words", "Letters"};
+	const char *animationTypes[] = {"Static", "Marquee", "Words", "Letters", "Rotate", "Underline"};
 	const char *musicType[] = {"CSGO", "CSGO2", "Crimson_Assault", "Sharpened", "Insurgency", "ADB", "High_Moon", "Deaths_Head_Demolition", "Desert_Fire", "LNOE", "Metal", "All_I_Want_for_Christmas", "IsoRhythm", "For_No_Mankind", "Hotline_Miami", "Total_Domination", "The_Talos_Principle", "Battlepack", "MOLOTOV", "Uber_Blasto_Phone", "Hazardous_Environments", "II-Headshot", "The_8-Bit_Kit", "I_Am", "Diamonds", "Invasion!", "Lions_Mouth", "Sponge_Fingerz", "Disgusting", "Java_Havana_Funkaloo", "Moments_CSGO", "Aggressive", "The_Good_Youth", "FREE", "Lifes_Not_Out_to_Get_You", "Backbone", "GLA", "III-Arena", "EZ4ENCE"};
 	const char *spammerTypes[] = {"None", "Normal", "Positions"};
 	const char *teams[] = {"Allies", "Enemies", "Both"};
