@@ -18,21 +18,25 @@
 #include "../Features/cvars.h"
 #include "../Features/memeangle.h"
 #include "../Features/animfix.h"
+#include "../Features/namechanger.h"
 
+typedef void (*FrameStageNotifyFn)(void *, ClientFrameStage_t);
 
-typedef void (*FrameStageNotifyFn) (void*, ClientFrameStage_t);
-
-void Hooks::FrameStageNotify(void* thisptr, ClientFrameStage_t stage)
+void Hooks::FrameStageNotify(void *thisptr, ClientFrameStage_t stage)
 {
- 	AntiAim::FrameStageNotify(stage);
+	if (engine->IsConnected() && !engine->IsInGame())
+	{
+		NameChanger::changeName(true, "", 0.f);
+	}
+	AntiAim::FrameStageNotify(stage);
 	CustomGlow::FrameStageNotify(stage);
-	
+
 	SkinChanger::FrameStageNotifyModels(stage);
 	SkinChanger::FrameStageNotifySkins(stage);
-	
+
 	Noflash::FrameStageNotify(stage);
 	View::FrameStageNotify(stage);
-        memeangles::FrameStageNotify(stage);
+	memeangles::FrameStageNotify(stage);
 	Resolver::FrameStageNotify(stage);
 	AnimFix::FrameStageNotify(stage);
 	SkyBox::FrameStageNotify(stage);
@@ -48,9 +52,8 @@ void Hooks::FrameStageNotify(void* thisptr, ClientFrameStage_t stage)
 	}
 
 	clientVMT->GetOriginalMethod<FrameStageNotifyFn>(37)(thisptr, stage);
-	
-	View::PostFrameStageNotify(stage);
-    //Resolver::PostFrameStageNotify(stage);
-	ResolverAP::PostFrameStageNotify(stage);
 
+	View::PostFrameStageNotify(stage);
+	// Resolver::PostFrameStageNotify(stage);
+	ResolverAP::PostFrameStageNotify(stage);
 }

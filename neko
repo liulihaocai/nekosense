@@ -3,6 +3,11 @@
 # https://github.com/seksea/gamesneeze
 # https://github.com/LWSS/Fuzion
 
+
+tlibname="libgamemodeauto.so.0" # Pretend to be gamemode, change this to another lib that may be in /maps (if already using real gamemode, I'd suggest using libMangoHud.so)
+gdb="$(dirname "$0")/gdb" # For using a gdb build such as the cathook one (The one included)
+libraryname="libKali.so" # The name of the library to patch
+
 function echo_green {
 	echo -e "\\e[32m$*\\e[0m"
 }
@@ -28,10 +33,6 @@ secs_to_human() {
 }
 
 function load() {
-    tlibname="libgamemodeauto.so.0" # Pretend to be gamemode, change this to another lib that may be in /maps (if already using real gamemode, I'd suggest using libMangoHud.so)
-    gdb="$(dirname "$0")/gdb" # For using a gdb build such as the cathook one (The one included)
-    libraryname="libKali.so" # The name of the library to patch
-
     csgo_pid=$(pidof csgo_linux64)
     if [ -z "$csgo_pid" ]; then
         echo_red "CS:GO needs to be open before you can inject, exiting..."
@@ -43,7 +44,6 @@ function load() {
     start=$(date +%s)
 
     echo_orange "Injecting cheat $libraryname into pid $csgo_pid..."
-    sudo rm /usr/lib/$tlibname > /dev/null
     sudo cp $libraryname /usr/lib/$tlibname
     gdbOut=$(
       $gdb -n -q -batch \
@@ -60,6 +60,9 @@ function load() {
     else
         echo_red "Injection failed, make sure you have compiled."
     fi
+
+    sudo rm /usr/lib/$tlibname > /dev/null
+
     secs_to_human "$(($(date +%s) - ${start}))"
 }
 
@@ -77,6 +80,8 @@ function build {
     fi
 
     make -j"$(grep -c "^processor" /proc/cpuinfo)" "$@" || exit 1
+    strip -s -v "$libraryname"
+    patchelf --set-soname "$tlibname" "$libraryname"
 
     echo "Build Completed."
 }

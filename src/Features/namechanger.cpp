@@ -3,6 +3,7 @@
 #include "../Utils/util.h"
 #include "../Utils/xorstring.h"
 #include "../interfaces.h"
+#include <chrono>
 
 std::string NameChanger::origName = "";
 int NameChanger::changes = -1;
@@ -76,7 +77,8 @@ void NameChanger::SetName(const char *name)
 	cvar_name->SetValue(name);
 }
 bool NameChanger::changeName(bool reconnect, const char *newName, float delay)
-{
+{ // delay is in seconds
+
 	static auto exploitInitialized{false};
 
 	static auto name = cvar->FindVar(XORSTR("name"));
@@ -101,14 +103,14 @@ bool NameChanger::changeName(bool reconnect, const char *newName, float delay)
 		}
 	}
 
-	static auto nextChangeTime{0.0f};
-	if (nextChangeTime <= globalVars->curtime)
-	{
-		name->SetValue(newName);
-		nextChangeTime = globalVars->curtime + delay;
-		return true;
-	}
-	return false;
+	// static auto nextChangeTime{0.0f};
+	// if (nextChangeTime <= globalVars->curtime)
+	// {
+	name->SetValue(newName);
+	// nextChangeTime = globalVars->curtime + delay;
+	return true;
+	// }
+	// return false;
 }
 void NameChanger::InitColorChange(NameChanger::NC_Type type, NameChanger::Colors color /*= NameChanger::Colors::LIGHT_RED*/)
 {
