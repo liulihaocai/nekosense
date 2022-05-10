@@ -1,6 +1,6 @@
 #pragma once
 
-#include "lua.h"
+#include "lua/lua.h"
 
 namespace ScriptApi {
 void PushToLua(lua_State *L);

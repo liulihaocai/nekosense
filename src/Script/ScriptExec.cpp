@@ -3,18 +3,29 @@
 #include "ScriptExec.h"
 #include "../config.h"
 #include "ScriptApi.h"
-#include "lauxlib.h"
-#include "lua.h"
-#include "luajit.h"
-#include "lualib.h"
+#include "lua/lauxlib.h"
+#include "lua/lua.h"
+#include "lua/lualib.h"
 #include <SDL2/SDL_messagebox.h>
 #include <dirent.h>
 #include <sstream>
 
 void ScriptExec::Execute(const char *filename) {
-  SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Notify", "Lua!", NULL);
 
-  lua_State *state = luaL_newstate();
+  SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Notify", LUA_VERSION,
+                           NULL);
+  SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Notify",
+                           "LuaL_newstate PRE", NULL);
+  lua_State *state;
+  SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Notify",
+                           "LuaL_newstate POST", NULL);
+  state = luaL_newstate();
+
+  if (state == nullptr || state == NULL) {
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error",
+                             "Failed to create lua state!", NULL);
+    return;
+  }
 
   // Make standard libraries available in the Lua object
   luaL_openlibs(state);

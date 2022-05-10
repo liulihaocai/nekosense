@@ -1,6 +1,6 @@
 
 #include "ScriptApi.h"
-#include "lua.h"
+#include "lua/lua.h"
 #include <SDL2/SDL_messagebox.h>
 
 static int s_client_notify(lua_State *L) {
