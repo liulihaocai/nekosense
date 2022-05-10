@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(Kali)
+project(nekosense)
 set(CMAKE_CXX_STANDARD 17)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
@@ -28,7 +28,7 @@ FUNCTION (EXCLUDE_FILES_FROM_DIR_IN_LIST _InFileList _excludeDirName _verbose)
 ENDFUNCTION (EXCLUDE_FILES_FROM_DIR_IN_LIST)
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -ldl -fpic --no-gnu-unique") #gnu-unique will stop us from unloading.
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -ldl -fpic") #gnu-unique will stop us from unloading.
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s -fvisibility=hidden -fvisibility-inlines-hidden -Wno-unused-variable ")
 #set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} -std=c++17 -Wall -Wno-maybe-uninitialized -Wno-unused-result -ldl -fpic -shared")
@@ -57,3 +57,4 @@ include_directories("${CMAKE_SOURCE_DIR}/src/ImGUI/examples/libs/gl3w/")
 
 add_library(Kali SHARED ${SOURCE_FILES})
 target_link_libraries(Kali dl SDL2 GL)
+target_link_libraries(Kali lua53)

@@ -4,6 +4,7 @@
 .idea/
 build/
 *.cbp
+.cache/
 cmake-build-debug
 CMakeFiles/
 CMakeCache.txt
