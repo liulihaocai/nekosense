@@ -396,3 +396,8 @@ void Eventlog::FireGameEvent(IGameEvent *event)
 		Ragebot::miss = false;
 	}
 }
+
+void Eventlog::PushLogs(std::string str) {
+  logToShow.insert(logToShow.begin(),
+                   std::pair<std::string, long>(str, Util::GetEpochTime()));
+}

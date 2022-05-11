@@ -57,4 +57,3 @@ include_directories("${CMAKE_SOURCE_DIR}/src/ImGUI/examples/libs/gl3w/")
 
 add_library(Kali SHARED ${SOURCE_FILES})
 target_link_libraries(Kali dl SDL2 GL)
-target_link_libraries(Kali lua53)

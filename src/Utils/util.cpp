@@ -3,6 +3,7 @@
 #include "xorstring.h"
 #include "../SDK/IVModelInfo.h"
 #include "../interfaces.h"
+#include "../Features/eventlog.h"
 
 #include <sstream>
 #include <chrono>
@@ -44,6 +45,17 @@ std::string Util::ReplaceString(std::string subject, const std::string& search, 
 	}
 
 	return subject;
+}
+
+void Util::ConsoleLog(const char *msg, const bool endl) {
+  cvar->ConsoleDPrintf(msg);
+  static std::stringstream ss;
+  ss << msg;
+  if (endl) {
+	  cvar->ConsoleDPrintf("\n");
+	  Eventlog::PushLogs(ss.str());
+	  ss.str("");
+  }
 }
 
 int Util::RandomInt(int min, int max)
